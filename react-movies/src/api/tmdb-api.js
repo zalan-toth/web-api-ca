@@ -90,8 +90,12 @@ export const getLatestMovie = () => {
 export const getUpcomingMovies = ({ queryKey }) => {
     const [, { pageNumber }] = queryKey;
     return fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${pageNumber}`
-    ).then((response) => {
+        `http://localhost:8080/api/movies/tmdb/upcoming?page=${pageNumber}`, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token')
+        }
+      }
+      ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
                 throw new Error(error.status_message || "Something went wrong");
@@ -177,7 +181,7 @@ export const getPerson = (args) => {
 };
 
 export const getGenres = () => {
-    /*return fetch(
+    return fetch(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
         process.env.REACT_APP_TMDB_KEY +
         "&language=en-US"
@@ -191,20 +195,7 @@ export const getGenres = () => {
     })
         .catch((error) => {
             throw error
-        });*/
-        return fetch(
-            `localhost:8080/api/movies/tmdb/genres`
-          ).then((response) => {
-            if (!response.ok) {
-                return response.json().then((error) => {
-                    throw new Error(error.status_message || "Something went wrong");
-                });
-            }
-            return response.json();
-        })
-            .catch((error) => {
-                throw error
-            });
+        });
 };
 
 export const getMovieImages = ({ queryKey }) => {
