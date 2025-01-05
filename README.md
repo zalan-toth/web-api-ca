@@ -47,11 +47,11 @@ To run the backend app in dev mode using babel (in the movies-api folder):
 Jagger documentation: https://zalantoth.hu/documentation/moviesapi.html
 
 + (GET) Getting popular people - `/api/movies/tmdb/people?page=${page}`
-+ (GET) Getting a specific person - `/api/movies/tmdb/person/${id}`
++ (GET) Getting a specific person - `/api/movies/tmdb/people/${id}`
 + (GET) Getting upcoming movies - `/api/movies/tmdb/upcoming?page=${page}`
 + (GET) Getting trending movies - `/api/movies/tmdb/trending?page=${page}`
 + (GET) Getting movies that are playing - `/api/movies/tmdb/playing?page=${page}`
-+ (GET) Getting a specific movie - `/api/movies/tmdb/movie/${id}`
++ (GET) Getting a specific movie - `/api/movies/tmdb/movies/${id}`
 + (POST) Login - `/api/users`
 + (POST) Signup - `/api/users?action=register`
 
