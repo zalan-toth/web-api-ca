@@ -43,8 +43,19 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/upcoming', asyncHandler(async (req, res) => {
-    const upcomingMovies = await getUpcomingMovies();
-    res.status(200).json(upcomingMovies);
+    let { page = 1, limit = 50 } = req.query; // destructure page and limit and set default values
+    [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
+
+        const upcomingMovies = await getUpcomingMovies(page);
+
+        const responseObject = {
+            page: upcomingMovies.page,
+            total_pages: upcomingMovies.total_pages,
+            total_results: upcomingMovies.total_results,
+            results: upcomingMovies.results,
+        };
+
+    res.status(200).json(responseObject);
 }));
 
 
