@@ -13,13 +13,13 @@ const LoginPage = props => {
         context.authenticate(userName, password);
     };
 
-    //let location = useLocation();
+    let location = useLocation();
 
     // Set 'from' to path where browser is redirected after a successful login - either / or the protected path user requested
-    //const { from } = location.state ? { from: location.state.from.pathname } : { from: "/" };
+    const { from } = location.state ? { from: location.state.from.pathname } : { from: "/" };
 
     if (context.isAuthenticated === true) {
-        return <Navigate to="/profile" />;
+        return <Navigate to={from} />;
     }
 
     return (
