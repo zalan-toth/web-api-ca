@@ -111,8 +111,12 @@ export const getUpcomingMovies = ({ queryKey }) => {
 export const getTrendingTodayMovies = ({ queryKey }) => {
     const [, { pageNumber }] = queryKey;
     return fetch(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${pageNumber}`
-    ).then((response) => {
+        `http://localhost:8080/api/movies/tmdb/trending?page=${pageNumber}`, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token')
+        }
+      }
+      ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
                 throw new Error(error.status_message || "Something went wrong");
@@ -130,8 +134,12 @@ export const getPlayingMovies = ({ queryKey }) => {
     const [, { pageNumber }] = queryKey;
     console.log("Page Detect",pageNumber)
     return fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${pageNumber}`
-    ).then((response) => {
+        `http://localhost:8080/api/movies/tmdb/playing?page=${pageNumber}`, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token')
+        }
+      }
+      ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
                 throw new Error(error.status_message || "Something went wrong");
