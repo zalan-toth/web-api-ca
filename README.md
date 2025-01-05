@@ -57,10 +57,12 @@ All these API endpoints are called from frontend instead of directly using TMDB.
 
 ## Routing. :globe_with_meridians:	
 
-#### Movie routes :movie_camera:
+#### Authentication routes :shield:
 + `/login` - Login
 + `/signup` - Sign up
 + PROTECTED `/profile` - Says if you are logged in
+
+#### Movie routes :movie_camera:
 + `/movies/discover` OR `/` - Discover movies (same as home)
 + `/movies/discover/page/:page` - Discover movies with current page
 + `/movies/favorites` - List of movies that contains the ones that the user selected as favourites!
