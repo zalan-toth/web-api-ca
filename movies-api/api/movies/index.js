@@ -111,7 +111,7 @@ router.get('/tmdb/people', asyncHandler(async (req, res) => {
     res.status(200).json(responseObject);
 }));
 
-router.get('/tmdb/movie/:id', asyncHandler(async (req, res) => {
+router.get('/tmdb/movies/:id', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
 
         const movie = await getMovie(id);
@@ -120,7 +120,7 @@ router.get('/tmdb/movie/:id', asyncHandler(async (req, res) => {
     res.status(200).json(movie);
 }));
 
-router.get('/tmdb/person/:id', asyncHandler(async (req, res) => {
+router.get('/tmdb/people/:id', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
 
         const person = await getPerson(id);

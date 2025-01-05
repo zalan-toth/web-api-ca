@@ -181,7 +181,7 @@ export const getMovie = (args) => {
     const { id } = idPart;
     return fetch(
         //`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-        `http://localhost:8080/api/movies/tmdb/movie/${id}`, {
+        `http://localhost:8080/api/movies/tmdb/movies/${id}`, {
             headers: {
               'Authorization': window.localStorage.getItem('token')
             }
@@ -204,7 +204,7 @@ export const getPerson = (args) => {
     const { id } = idPart;
     return fetch(
         //`https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-        `http://localhost:8080/api/movies/tmdb/person/${id}`, {
+        `http://localhost:8080/api/movies/tmdb/people/${id}`, {
             headers: {
               'Authorization': window.localStorage.getItem('token')
             }
