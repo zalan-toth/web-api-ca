@@ -48,7 +48,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/upcoming', asyncHandler(async (req, res) => {
-    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    let { page = 1, limit = 50 } = req.query; // destructure page and limit and set default values
     [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
 
         const upcomingMovies = await getUpcomingMovies(page);
@@ -64,7 +64,7 @@ router.get('/tmdb/upcoming', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/playing', asyncHandler(async (req, res) => {
-    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    let { page = 1, limit = 50 } = req.query; // destructure page and limit and set default values
     [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
 
         const playingMovies = await getPlayingMovies(page);
@@ -80,7 +80,7 @@ router.get('/tmdb/playing', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/trending', asyncHandler(async (req, res) => {
-    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    let { page = 1, limit = 50 } = req.query; // destructure page and limit and set default values
     [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
 
         const trendingMovies = await getTrendingMovies(page);
@@ -96,7 +96,7 @@ router.get('/tmdb/trending', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/people', asyncHandler(async (req, res) => {
-    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    let { page = 1, limit = 50 } = req.query; // destructure page and limit and set default values
     [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
 
         const people = await getPeople(page);
@@ -129,3 +129,5 @@ router.get('/tmdb/person/:id', asyncHandler(async (req, res) => {
     res.status(200).json(person);
 }));
 export default router;
+
+// I'll leave limit in, but it is not used as data is fetced from TMDB, it'll never exceed 50 as it relies on tmdb
