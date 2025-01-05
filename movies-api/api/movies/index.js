@@ -3,7 +3,9 @@ import asyncHandler from 'express-async-handler';
 import express from 'express';
 import {
     getMovieGenres,
-    getUpcomingMovies
+    getUpcomingMovies,
+    getTrendingMovies,
+    getPlayingMovies
   } from '../tmdb-api';
   
 
