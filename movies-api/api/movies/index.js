@@ -6,7 +6,8 @@ import {
     getUpcomingMovies,
     getTrendingMovies,
     getPlayingMovies,
-    getPeople
+    getPeople,
+    getMovie
   } from '../tmdb-api';
   
 
@@ -109,5 +110,16 @@ router.get('/tmdb/people', asyncHandler(async (req, res) => {
     res.status(200).json(responseObject);
 }));
 
+router.get('/tmdb/movie', asyncHandler(async (req, res) => {
+    const id = req.query;
+
+        const movie = await getMovie(id);
+
+        const responseObject = {
+            results: movie.results,
+        };
+
+    res.status(200).json(responseObject);
+}));
 
 export default router;
