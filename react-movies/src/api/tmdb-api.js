@@ -175,6 +175,11 @@ export const getMovie = (args) => {
     const { id } = idPart;
     return fetch(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+        /*`http://localhost:8080/api/movies/tmdb/movie?id=${id}`, {
+            headers: {
+              'Authorization': window.localStorage.getItem('token')
+            }
+        }*/
     ).then((response) => {
         if (!response.ok) {
             return response.json().then((error) => {
