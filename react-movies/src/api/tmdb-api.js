@@ -24,6 +24,23 @@ export const signup = async (username, password) => {
 
 export const getMovies = ({ queryKey }) => {
     const [, { pageNumber }] = queryKey;
+    /*return fetch(
+        `http://localhost:8080/api/movies?page=${pageNumber}`, {
+        headers: {
+          'Authorization': window.localStorage.getItem('token')
+        }
+      }
+      ).then((response) => {
+        if (!response.ok) {
+            return response.json().then((error) => {
+                throw new Error(error.status_message || "Something went wrong");
+            });
+        }
+        return response.json();
+    })
+        .catch((error) => {
+            throw error
+        });*/
     return fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}`
     ).then((response) => {
@@ -160,7 +177,7 @@ export const getPerson = (args) => {
 };
 
 export const getGenres = () => {
-    return fetch(
+    /*return fetch(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
         process.env.REACT_APP_TMDB_KEY +
         "&language=en-US"
@@ -174,7 +191,20 @@ export const getGenres = () => {
     })
         .catch((error) => {
             throw error
-        });
+        });*/
+        return fetch(
+            `localhost:8080/api/movies/tmdb/genres`
+          ).then((response) => {
+            if (!response.ok) {
+                return response.json().then((error) => {
+                    throw new Error(error.status_message || "Something went wrong");
+                });
+            }
+            return response.json();
+        })
+            .catch((error) => {
+                throw error
+            });
 };
 
 export const getMovieImages = ({ queryKey }) => {
