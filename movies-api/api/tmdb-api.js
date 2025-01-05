@@ -46,6 +46,21 @@ export const getTrendingMovies = async (page = 1) => {
         throw error;
     }
 };
+export const getPeople = async (page = 1) => {
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${page}`
+        );
+
+        if (!response.ok) {
+            throw new Error(response.json().message);
+        }
+
+        return await response.json();
+    } catch (error) {
+        throw error;
+    }
+};
 export const getMovieGenres = async () => {
     try {
         const response = await fetch(

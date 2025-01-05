@@ -5,7 +5,8 @@ import {
     getMovieGenres,
     getUpcomingMovies,
     getTrendingMovies,
-    getPlayingMovies
+    getPlayingMovies,
+    getPeople
   } from '../tmdb-api';
   
 
@@ -87,6 +88,22 @@ router.get('/tmdb/trending', asyncHandler(async (req, res) => {
             total_pages: trendingMovies.total_pages,
             total_results: trendingMovies.total_results,
             results: trendingMovies.results,
+        };
+
+    res.status(200).json(responseObject);
+}));
+
+router.get('/tmdb/people', asyncHandler(async (req, res) => {
+    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
+
+        const people = await getPeople(page);
+
+        const responseObject = {
+            page: people.page,
+            total_pages: people.total_pages,
+            total_results: people.total_results,
+            results: people.results,
         };
 
     res.status(200).json(responseObject);
