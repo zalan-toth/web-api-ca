@@ -58,6 +58,37 @@ router.get('/tmdb/upcoming', asyncHandler(async (req, res) => {
     res.status(200).json(responseObject);
 }));
 
+router.get('/tmdb/playing', asyncHandler(async (req, res) => {
+    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
+
+        const playingMovies = await getPlayingMovies(page);
+
+        const responseObject = {
+            page: playingMovies.page,
+            total_pages: playingMovies.total_pages,
+            total_results: playingMovies.total_results,
+            results: playingMovies.results,
+        };
+
+    res.status(200).json(responseObject);
+}));
+
+router.get('/tmdb/trending', asyncHandler(async (req, res) => {
+    let { page = 1, limit = 500 } = req.query; // destructure page and limit and set default values
+    [page, limit] = [+page, +limit]; //trick to convert to numeric (req.query will contain string values)
+
+        const trendingMovies = await getTrendingMovies(page);
+
+        const responseObject = {
+            page: trendingMovies.page,
+            total_pages: trendingMovies.total_pages,
+            total_results: trendingMovies.total_results,
+            results: trendingMovies.results,
+        };
+
+    res.status(200).json(responseObject);
+}));
 
 router.get('/tmdb/genres', asyncHandler(async (req, res) => {
     const movieGenres = await getMovieGenres();
