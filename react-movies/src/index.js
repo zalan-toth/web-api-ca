@@ -52,6 +52,17 @@ const App = () => {
 
                         <Route element={<ProtectedRoutes />}>
                         <Route path="/profile" element={<ProfilePage />} />
+
+                        <Route path="/movies/upcoming/page/:page" element={<UpcomingMoviesPage />} />
+                        <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
+                        <Route path="/movies/trending/today/page/:page" element={<TrendingTodayMoviesPage />} />
+                        <Route path="/movies/trending/today" element={<TrendingTodayMoviesPage />} />
+                        <Route path="/movies/playing/page/:page" element={<PlayingMoviesPage />} />
+                        <Route path="/movies/playing" element={<PlayingMoviesPage />} />
+                        <Route path="/movies/search" element={<MovieSearchPage />} />
+                        <Route path="/movies/search/:title" element={<SearchResultMoviesPage />} />
+                        <Route path="/movies/search/:title/page/:page" element={<SearchResultMoviesPage />} />
+                        <Route path="/movies/latest" element={<LatestMoviePage />} />
                         </Route>
 
                         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
@@ -59,18 +70,8 @@ const App = () => {
 
                         <Route path="/movies/discover/page/:page" element={<HomePage />} />
                         <Route path="/movies/discover" element={<HomePage />} />
-                        <Route path="/movies/search" element={<MovieSearchPage />} />
-                        <Route path="/movies/search/:title" element={<SearchResultMoviesPage />} />
-                        <Route path="/movies/search/:title/page/:page" element={<SearchResultMoviesPage />} />
                         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
                         <Route path="/movies/watchlist" element={<WatchListMoviesPage />} />
-                        <Route path="/movies/upcoming/page/:page" element={<UpcomingMoviesPage />} />
-                        <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
-                        <Route path="/movies/trending/today/page/:page" element={<TrendingTodayMoviesPage />} />
-                        <Route path="/movies/trending/today" element={<TrendingTodayMoviesPage />} />
-                        <Route path="/movies/playing/page/:page" element={<PlayingMoviesPage />} />
-                        <Route path="/movies/playing" element={<PlayingMoviesPage />} />
-                        <Route path="/movies/latest" element={<LatestMoviePage />} />
                         <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
                         <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
                         <Route path="/movies/:id" element={<MoviePage />} />

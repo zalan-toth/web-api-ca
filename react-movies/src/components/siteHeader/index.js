@@ -27,11 +27,11 @@ const SiteHeader = ({ history }) => {
         { label: "Home", path: "/" },
         { label: "Favorites", path: "/movies/favorites" },
         { label: "Watch-List", path: "/movies/watchlist" },
-        { label: "Upcoming", path: "/movies/upcoming" },
-        { label: "Trending", path: "/movies/trending/today" },
-        { label: "Playing", path: "/movies/playing" },
-        { label: "Latest", path: "/movies/latest" },
-        { label: "Search", path: "/movies/search" },
+        { label: "Upcoming*", path: "/movies/upcoming" },
+        { label: "Trending*", path: "/movies/trending/today" },
+        { label: "Playing*", path: "/movies/playing" },
+        { label: "Latest*", path: "/movies/latest" },
+        { label: "Search*", path: "/movies/search" },
         { label: "People", path: "/people/popular" }
     ];
     const authOptions = [
