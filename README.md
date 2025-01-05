@@ -18,15 +18,15 @@ Several endpoints were added to the API that are fetching the data from TMDB. Th
 ### Features. :sunglasses:
  
 1. **Extended the API**
-    - There are 6 endpoints which do fetch their information from TMDB. They all use some kind of parameterised value like id (parameter) or page (query string).
+    - There are 6 endpoints in the backend which do fetch their information from TMDB. They all use some kind of parameterised value like id (parameter) or page (query string).
 2. **Integration**
     - Frontend and backend apps are connected.
-    - Frontend calls 8 endpoints from the backend API. 2 of them are for authentication purposes (login, signup), and 6 of them are to call movie or famous people information.
+    - Frontend calls 8 endpoints from the backend API. 2 of them are for authentication purposes (login, signup), and 6 of them are to call for movie or famous people information.
 3. **Authentication**
     - Simple login and signup are included in the app, accessible in the right section of the site header (via links /login and /signup)
-    - Most content on the app is protected, therefore there are several routes protected.
+    - Most content on the app is protected, therefore there are a lot of routes protected.
 5. **Documentation**
-    - TODO
+    - TODO Swagger
 
 ## Setup requirements.
 
@@ -51,6 +51,38 @@ To run the backend app in dev mode using babel (in the movies-api folder):
 + (GET) Getting a specific movie - `/api/movies/tmdb/movie/${id}`
 + (POST) Login - `/api/users`
 + (POST) Signup - `/api/users?action=register`
+
+All these API endpoints are called from frontend instead of directly using TMDB.
+
+
+## Routing. :globe_with_meridians:	
+
+#### Movie routes :movie_camera:
++ `/login` - Login
++ `/signup` - Sign up
++ PROTECTED `/profile` - Says if you are logged in
++ `/movies/discover` OR `/` - Discover movies (same as home)
++ `/movies/discover/page/:page` - Discover movies with current page
++ `/movies/favorites` - List of movies that contains the ones that the user selected as favourites!
++ `/movies/watchlist` - List of movies that contains the ones that the user wants to watch!
++ PROTECTED `/movies/:id` - Provides information about movie
++ PROTECTED `/movies/upcoming` - Provides upcoming movies
++ PROTECTED `/movies/upcoming/page/:page` - Provides upcoming movies with current page
++ PROTECTED `/movies/trending/today` - Provides movies that are trending today
++ PROTECTED `/movies/trending/today/page/:page` - Provides movies that are trending today with current page
++ PROTECTED `/movies/playing` - Provides movies that are currently playing
++ PROTECTED `/movies/playing/page/:page` - Provides movies that are currently playing with current page
++ PROTECTED `/movies/latest` - Gives the latest movie added to TMDB
++ PROTECTED `/similar` OR `/similar/:id` OR `/movies/:id/similar` - Provides similar movies to the given one (stateful and parameterised)
++ PROTECTED `/movies/search` - Searches for movie based on title
++ PROTECTED `/movies/search/:title` - Result of movie search
++ PROTECTED `/movies/search/:title/page/:page` - Result of movie search with pagination support for the result
++ PROTECTED `/movies/:id/credits` - Provides credits for a movie
+#### People routes :person_red_hair:
++ PROTECTED `/people/popular` - Provides list of popular people with sorting support with 2 layouts for listing
++ PROTECTED `/people/popular/page/:page` - Provides list of popular people (_||_) with pagination support
++ PROTECTED `/people/:id` - Provides details about a person
++ PROTECTED `/people/:id/credits/movie` - Provides movie credits for person
 
 
 
