@@ -109,9 +109,5 @@ router.get('/tmdb/people', asyncHandler(async (req, res) => {
     res.status(200).json(responseObject);
 }));
 
-router.get('/tmdb/genres', asyncHandler(async (req, res) => {
-    const movieGenres = await getMovieGenres();
-    res.status(200).json(movieGenres);
-}));
 
 export default router;

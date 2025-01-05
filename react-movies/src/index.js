@@ -64,27 +64,26 @@ const App = () => {
                         <Route path="/movies/search/:title/page/:page" element={<SearchResultMoviesPage />} />
                         <Route path="/movies/latest" element={<LatestMoviePage />} />
 
-                        <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
-                        <Route path="/people/popular" element={<PopularPeoplePage />} />
-                        </Route>
+                        <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
+                        <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
+                        <Route path="/movies/:id" element={<MoviePage />} />
+                        <Route path="/similar" element={ <SimilarMoviesPage /> } />
+                        <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
 
                         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
                         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+
+                        <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
+                        <Route path="/people/popular" element={<PopularPeoplePage />} />
+                        <Route path="/people/:id" element={<PersonPage />} />
+                        <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
+                        </Route>
 
                         <Route path="/movies/discover/page/:page" element={<HomePage />} />
                         <Route path="/movies/discover" element={<HomePage />} />
                         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
                         <Route path="/movies/watchlist" element={<WatchListMoviesPage />} />
-                        <Route path="/movies/:id/similar" element={ <SimilarMoviesPage /> } />
-                        <Route path="/movies/:id/credits" element={ <MovieCreditsPage /> } />
-                        <Route path="/movies/:id" element={<MoviePage />} />
 
-                        <Route path="/similar" element={ <SimilarMoviesPage /> } />
-                        <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
-
-                    
-                        <Route path="/people/:id" element={<PersonPage />} />
-                        <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
 
                         <Route path="/" element={<HomePage />} />
                         <Route path="*" element={ <Navigate to="/" /> } />
