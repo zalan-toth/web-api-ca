@@ -112,26 +112,20 @@ router.get('/tmdb/people', asyncHandler(async (req, res) => {
 }));
 
 router.get('/tmdb/movie', asyncHandler(async (req, res) => {
-    const id = req.query;
+    const { id } = req.query;
 
         const movie = await getMovie(id);
 
-        const responseObject = {
-            results: movie.results,
-        };
 
-    res.status(200).json(responseObject);
+    res.status(200).json(movie);
 }));
 
 router.get('/tmdb/person', asyncHandler(async (req, res) => {
-    const id = req.query;
+    const { id } = req.query;
 
         const person = await getPerson(id);
 
-        const responseObject = {
-            results: person.results,
-        };
 
-    res.status(200).json(responseObject);
+    res.status(200).json(person);
 }));
 export default router;

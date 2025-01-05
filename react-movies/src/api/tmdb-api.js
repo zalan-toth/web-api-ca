@@ -57,7 +57,7 @@ export const getMovies = ({ queryKey }) => {
 };
 export const getPopularPeople = ({ queryKey }) => {
     const [, { pageNumber }] = queryKey;
-    console.log("Page Detect",pageNumber)
+    /*console.log("Page Detect",pageNumber)
     return fetch(
         `http://localhost:8080/api/movies/tmdb/playing?page=${pageNumber}`, {
         headers: {
@@ -74,8 +74,8 @@ export const getPopularPeople = ({ queryKey }) => {
     })
         .catch((error) => {
             throw error
-        });
-    /*console.log("Page Detect",pageNumber)
+        });*/
+    console.log("Page Detect",pageNumber)
     return fetch(
         `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${pageNumber}`
     ).then((response) => {
@@ -88,7 +88,7 @@ export const getPopularPeople = ({ queryKey }) => {
     })
         .catch((error) => {
             throw error
-        });*/
+        });
 };
 export const getLatestMovie = () => {
     return fetch(
