@@ -26,7 +26,8 @@ Several endpoints were added to the API that are fetching the data from TMDB. Th
     - Simple login and signup are included in the app, accessible in the right section of the site header (via links /login and /signup)
     - Most content on the app is protected, therefore there are a lot of routes protected.
 5. **Documentation**
-    - TODO Swagger
+    - API documentation made with Jagger exported in HTML is accessible at https://zalantoth.hu/documentation/moviesapi.html
+    - I did upload the corresponding YAML file made with Jagger called openapi-docu.yml
 
 ## Setup requirements.
 
@@ -42,6 +43,8 @@ To run the backend app in dev mode using babel (in the movies-api folder):
 `npm run dev`
 
 ## API endpoints on the backend. :nerd_face:
+
+Jagger documentation: https://zalantoth.hu/documentation/moviesapi.html
 
 + (GET) Getting popular people - `/api/movies/tmdb/people?page=${page}`
 + (GET) Getting a specific person - `/api/movies/tmdb/person/${id}`
