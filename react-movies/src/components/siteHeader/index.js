@@ -32,7 +32,7 @@ const SiteHeader = ({ history }) => {
         { label: "Playing*", path: "/movies/playing" },
         { label: "Latest*", path: "/movies/latest" },
         { label: "Search*", path: "/movies/search" },
-        { label: "People", path: "/people/popular" }
+        { label: "People*", path: "/people/popular" }
     ];
     const authOptions = [
         { label: "Login", path: "/login" },

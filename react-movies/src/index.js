@@ -63,6 +63,9 @@ const App = () => {
                         <Route path="/movies/search/:title" element={<SearchResultMoviesPage />} />
                         <Route path="/movies/search/:title/page/:page" element={<SearchResultMoviesPage />} />
                         <Route path="/movies/latest" element={<LatestMoviePage />} />
+
+                        <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
+                        <Route path="/people/popular" element={<PopularPeoplePage />} />
                         </Route>
 
                         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
@@ -79,8 +82,7 @@ const App = () => {
                         <Route path="/similar" element={ <SimilarMoviesPage /> } />
                         <Route path="/similar/:id" element={ <SimilarMoviesPage /> } />
 
-                        <Route path="/people/popular/page/:page" element={<PopularPeoplePage />} />
-                        <Route path="/people/popular" element={<PopularPeoplePage />} />
+                    
                         <Route path="/people/:id" element={<PersonPage />} />
                         <Route path="/people/:id/credits/movie" element={<MovieCreditsForPersonPage />} />
 
