@@ -1,0 +1,236 @@
+openapi: 3.0.0
+info:
+  title: Movies API
+  version: 1.0.0
+  description: API for movies backend
+paths:
+  /api/movies/tmdb/people:
+    get:
+      summary: Getting list of popular people (paginated)
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: List of people
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /api/movies/tmdb/people/{id}:
+    get:
+      summary: Getting specific person
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Movie ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of people
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /api/movies/tmdb/trending:
+    get:
+      summary: Getting list of trending movies (paginated)
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: List of movies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /api/movies/tmdb/upcoming:
+    get:
+      summary: Get upcoming movies (with pagination)
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Upcoming movies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /api/movies/tmdb/playing:
+    get:
+      summary: Get movies that are playing (with pagination)
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Playing movies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+  /api/movies/tmdb/movies/{id}:
+    get:
+      summary: Get movie details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Movie ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Movie details
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Movie not found
+  /api/users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+    post:
+      summary: Register or authenticate a user
+      parameters:
+        - name: action
+          in: query
+          required: false
+          description: Action to perform (register or authenticate)
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        '201':
+          description: User registered
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Authentication failed
+  /api/users/{id}:
+    put:
+      summary: Update user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: User ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: User updated
+        '404':
+          description: User not found
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/20102768/WAD-CA2/1.0.0
