@@ -36,8 +36,7 @@ const SiteHeader = ({ history }) => {
     ];
     const authOptions = [
         { label: "Login", path: "/login" },
-        { label: "Signup", path: "/signup" },
-        { label: "My-Profile", path: "/profile" }
+        { label: "Signup", path: "/signup" }
     ];
 
     const handleMenuSelect = (pageURL) => {
