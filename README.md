@@ -56,7 +56,7 @@ Jagger documentation: https://zalantoth.hu/documentation/moviesapi.html
 + (POST) Signup - `/api/users?action=register`
 
 All these API endpoints are called from frontend instead of directly using TMDB.
-
+Endpoints were tested with Postman so they all should work correctly!
 
 ## Routing. :globe_with_meridians:	
 
